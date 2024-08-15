@@ -178,6 +178,7 @@ export class DateTimePickerModal extends React.PureComponent {
               display={display || "spinner"}
               {...otherProps}
               value={this.state.currentDate}
+              themeVariant={_isDarkModeEnabled ? 'dark' : 'light'}
               onChange={this.handleChange}
               // Recent versions @react-native-community/datetimepicker (at least starting with 6.7.0)
               // have a peculiar iOS behaviour where sometimes, for example in react-native Modal,

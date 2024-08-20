@@ -5,7 +5,6 @@ import {
   Text,
   TouchableHighlight,
   View,
-  Appearance,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Modal from "./Modal";
@@ -169,7 +168,7 @@ export class DateTimePickerModal extends React.PureComponent {
               display={display || "spinner"}
               {...otherProps}
               value={this.state.currentDate}
-              themeVariant={'light'}
+              themeVariant={"light"}
               onChange={this.handleChange}
               // Recent versions @react-native-community/datetimepicker (at least starting with 6.7.0)
               // have a peculiar iOS behaviour where sometimes, for example in react-native Modal,

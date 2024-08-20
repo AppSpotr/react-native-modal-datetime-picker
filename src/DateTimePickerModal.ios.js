@@ -130,19 +130,12 @@ export class DateTimePickerModal extends React.PureComponent {
       ...otherProps
     } = this.props;
 
-    const _isDarkModeEnabled =
-      isDarkModeEnabled === undefined
-        ? Appearance.getColorScheme() === "dark"
-        : isDarkModeEnabled || false;
-
     const ConfirmButtonComponent = customConfirmButtonIOS || ConfirmButton;
     const CancelButtonComponent = customCancelButtonIOS || CancelButton;
     const PickerComponent = customPickerIOS || DateTimePicker;
     const HeaderComponent = customHeaderIOS;
 
-    const themedContainerStyle = _isDarkModeEnabled
-      ? pickerStyles.containerDark
-      : pickerStyles.containerLight;
+    const themedContainerStyle = pickerStyles.containerLight;
 
     return (
       <Modal
@@ -176,7 +169,7 @@ export class DateTimePickerModal extends React.PureComponent {
               display={display || "spinner"}
               {...otherProps}
               value={this.state.currentDate}
-              themeVariant={_isDarkModeEnabled ? 'dark' : 'light'}
+              themeVariant={'light'}
               onChange={this.handleChange}
               // Recent versions @react-native-community/datetimepicker (at least starting with 6.7.0)
               // have a peculiar iOS behaviour where sometimes, for example in react-native Modal,
@@ -198,7 +191,7 @@ export class DateTimePickerModal extends React.PureComponent {
           </View>
           <ConfirmButtonComponent
             confirmButtonTestID={confirmButtonTestID}
-            isDarkModeEnabled={_isDarkModeEnabled}
+            isDarkModeEnabled={false}
             onPress={this.handleConfirm}
             label={confirmTextIOS}
             buttonTextColorIOS={buttonTextColorIOS}
@@ -206,7 +199,7 @@ export class DateTimePickerModal extends React.PureComponent {
         </View>
         <CancelButtonComponent
           cancelButtonTestID={cancelButtonTestID}
-          isDarkModeEnabled={_isDarkModeEnabled}
+          isDarkModeEnabled={false}
           onPress={this.handleCancel}
           label={cancelTextIOS}
           buttonTextColorIOS={buttonTextColorIOS}

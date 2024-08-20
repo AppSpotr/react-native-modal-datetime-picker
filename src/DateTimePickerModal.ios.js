@@ -129,11 +129,9 @@ export class DateTimePickerModal extends React.PureComponent {
       buttonTextColorIOS,
       ...otherProps
     } = this.props;
-    const isAppearanceModuleAvailable = !!(
-      Appearance && Appearance.getColorScheme
-    );
+
     const _isDarkModeEnabled =
-      isDarkModeEnabled === undefined && isAppearanceModuleAvailable
+      isDarkModeEnabled === undefined
         ? Appearance.getColorScheme() === "dark"
         : isDarkModeEnabled || false;
 
